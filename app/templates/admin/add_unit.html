@@ -1,0 +1,29 @@
+{% extends 'admin/base.html' %}
+
+{% block title %}Add New Product{% endblock %}
+
+{% block content %}
+
+<div class="app-wrapper">
+
+    <div class="app-content pt-3 p-md-3 p-lg-4">
+        <div class="container-xl">
+
+            <div class="app-card app-card-settings shadow-sm p-4">
+                <h2 class="page-title">Add New Unit</h2>
+                <form method="POST" action="{{ url_for('add_unit') }}" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="unit">Unit Name:</label>
+                        <input type="text" id="unit" name="unit" class="form-control" required>
+                    </div>
+                   
+                    <button type="submit" class="btn btn-primary">Add unit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+        {% endblock %}

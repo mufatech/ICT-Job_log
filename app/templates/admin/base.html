@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>ICT JOBLOG || Admin Area</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+        <link href="../../static/admin/css/styles.css" rel="stylesheet" />
+        <link rel="shortcut icon" type="image/x-icon" href="../../static/img/banner/ictlogo.jpeg">
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    </head>
+
+
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="{{ url_for('admin_dashboard') }}">ICT JOBLOG</a>
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                  {% for category, message in messages %}
+                  
+                      {{ message }}
+                     
+                  
+                  {% endfor %}
+                {% endif %}
+              {% endwith %}
+            </form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <!-- <li><a class="dropdown-item" href="#!">Settings</a></li>
+                        <li><a class="dropdown-item" href="#!">Activity Log</a></li> -->
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="{{ url_for('logout') }}">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <a class="nav-link" href="{{ url_for('admin_dashboard') }}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
+                            </a>       
+                            
+                            <div class="sb-sidenav-menu-heading">User</div>                            
+                            <a class="nav-link" href="">
+                             <div class="sb-nav-link-icon"><i class="fas fa-user-plus"></i>
+
+                             </div>Add User</a>
+
+                            <a class="nav-link" href=""> <div class="sb-nav-link-icon"><i class="fas fa-user-plus"></i></div>Edit User</a>
+                            
+                     
+                            <div class="sb-sidenav-menu-heading">Terminal</div>                            
+                            <a class="nav-link" href="{{ url_for('add_terminal') }}"><div class="sb-nav-link-icon"><i class="fas fa-plus"></i>
+                            </div> Add Terminal</a>
+                            <a class="nav-link" href="{{ url_for('view_terminals')}}"><div class="sb-nav-link-icon"><svg class="octicon octicon-pencil" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4.71 11.29L10.41 5.59 11.85 7.02 6.15 12.71H4v-1.41l5.71-5.7-1.44-1.43-5.7 5.7zM1 12.5a1.5 1.5 0 003 0 1.5 1.5 0 00-3 0zM2.44 14H11.5a.5.5 0 000-1H2.44a2.492 2.492 0 01-.98-.24c-.02-.01-.03-.02-.04-.03l-1-1a.5.5 0 010-.7l4-4a.5.5 0 01.7 0l8.96 8.96a.5.5 0 01-.35.85H13.5a.5.5 0 000 1h3.85a.5.5 0 01.35.85l-1 1a.5.5 0 01-.35.15.5.5 0 01-.35-.15l-1.45-1.45-8.96-8.96a.5.5 0 010-.7l4-4a.5.5 0 01.7 0l1 1c.01.01.02.02.03.04a2.492 2.492 0 01.24.98v.01a.5.5 0 001 0v-.01c0-.16-.04-.32-.1-.47L2.44 14z"></path></svg>
+                            </div>View Terminals</a>
+                            <a class="nav-link" href=""><div class="sb-nav-link-icon"><svg class="octicon octicon-pencil" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4.71 11.29L10.41 5.59 11.85 7.02 6.15 12.71H4v-1.41l5.71-5.7-1.44-1.43-5.7 5.7zM1 12.5a1.5 1.5 0 003 0 1.5 1.5 0 00-3 0zM2.44 14H11.5a.5.5 0 000-1H2.44a2.492 2.492 0 01-.98-.24c-.02-.01-.03-.02-.04-.03l-1-1a.5.5 0 010-.7l4-4a.5.5 0 01.7 0l8.96 8.96a.5.5 0 01-.35.85H13.5a.5.5 0 000 1h3.85a.5.5 0 01.35.85l-1 1a.5.5 0 01-.35.15.5.5 0 01-.35-.15l-1.45-1.45-8.96-8.96a.5.5 0 010-.7l4-4a.5.5 0 01.7 0l1 1c.01.01.02.02.03.04a2.492 2.492 0 01.24.98v.01a.5.5 0 001 0v-.01c0-.16-.04-.32-.1-.47L2.44 14z"></path></svg>
+                            </div>Edit Terminal</a>
+                            
+
+                            <div class="sb-sidenav-menu-heading">Unit</div>                            
+                            <a class="nav-link" href="{{ url_for('add_unit') }}"><div class="sb-nav-link-icon"><i class="fas fa-plus"></i></div>Add Unit</a>
+                            <a class="nav-link" href="{{ url_for('view_units')}}"><div class="sb-nav-link-icon"><i class="material-icons"></i></div>
+                               View Units</a>
+                            <a class="nav-link" href="{{ url_for('edit_unit', unit_id=1) }}"><div class="sb-nav-link-icon"><i class="material-icons"></i></div>
+                                Edit Unit</a>
+                        </div>
+
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Logged in as:</div>
+                        {{ current_user.email }}
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                            
+                <main>
+
+                    {% block content %}
+
+                 
+                    {% endblock %}
+                </main>
+                
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; ICT DEPARTMENT 2024</div>
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="../../static/admin/js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="../../static/admin/assets/demo/chart-area-demo.js"></script>
+        <script src="../../static/admin/assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+        <script src="../../static/admin/js/datatables-simple-demo.js"></script>
+    </body>
+</html>

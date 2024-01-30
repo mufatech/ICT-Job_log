@@ -1,0 +1,29 @@
+{% extends 'admin/base.html' %}
+
+{% block title %}Edit Units{% endblock %}
+
+{% block content %}
+
+<div class="app-wrapper">
+
+    <div class="app-content pt-3 p-md-3 p-lg-4">
+        <div class="container-xl">
+
+            <div class="app-card app-card-settings shadow-sm p-4">
+                <h2 class="page-title">Edit Unit</h2>
+                <form method="POST" action="" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="unit_id">Unit Name:</label>
+                        <input type="text" id="unit" name="unit" value="{{ unit.unit }}" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+        {% endblock %}

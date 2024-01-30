@@ -1,0 +1,103 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    form {
+        /* max-width: 400px; */
+        margin: auto;
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 3px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    input[type="text"] {
+        width: 80%;
+        padding: 8px;
+        margin-bottom: 16px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    input[type="submit"] {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    </style>
+
+
+    <h2 class="m-3">Logged Jobs</h2>
+    <table class="table table-success table-striped mt-4">
+        <thead>
+            <tr>
+                <th>Job ID</th>
+                <th>Date</th>
+                <th>Username</th>
+                <th>Phone Number</th>
+                <th>Terminal</th>
+                <th>Unit</th>
+                <th>Location</th>
+                <th>Equipment Type</th>
+                <th>Fault</th>
+                <th>Rectification</th>
+                <th>Remarks</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for job in logged_jobs.items %}
+            <tr>
+                <td>{{ job.id }}</td>
+                <td>{{ job.fault_date }}</td>
+                <td>{{ job.username }}</td>
+                <td>{{ job.number }}</td>
+                <td>{{ job.terminal.terminal if job.terminal else 'N/A' }}</td>
+                <td>{{ job.unit.unit if job.unit else 'N/A' }}</td>
+                <td>{{ job.location }}</td>
+                <td>{{ job.equipment_type }}</td>
+                <td>{{ job.fault }}</td>
+                <td>{{ job.rectification }}</td>
+                <td>{{ job.remarks }}</td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="pagination justify-content-center">
+        <span class="badge badge-light">
+            Page {{ logged_jobs.page }} of {{ logged_jobs.pages }}
+        </span>
+        {% if logged_jobs.has_prev %}
+            <a href="{{ url_for('view_logged_jobs', page=logged_jobs.prev_num) }}" class="btn btn-sm btn-primary">Previous</a>
+        {% endif %}
+        {% if logged_jobs.has_next %}
+            <a href="{{ url_for('view_logged_jobs', page=logged_jobs.next_num) }}" class="btn btn-sm btn-primary">Next</a>
+        {% endif %}
+    </div>
+
+{% endblock %}
+
+

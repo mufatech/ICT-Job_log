@@ -1,0 +1,409 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../../static/img/banner/ictlogo.jpeg">
+    <style>
+
+body{
+    background: #87CEEB;
+    background-size: cover;
+    background-position: top right ;
+    width: 100%;
+}
+    
+.maincountanier{
+
+    margin: auto;
+    width: 50%;
+    background: rgb(227,227,227);
+background: radial-gradient(circle, rgba(227,227,227,1) 0%, rgba(224,218,255,1) 
+48%, rgba(254,245,255,1) 100%, rgba(106,47,119,1) 100%);
+border-radius: 0px 100px 0px 100px;
+     font-family: Arial, Helvetica, sans-serif;
+     box-sizing: border-box;
+    
+     
+    
+}
+
+h1{
+   
+    color: white;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 30px ;
+    box-sizing: border-box;
+    font-size: 30px;
+    border-radius: 0px 100px 0px 100px;
+    width: 100%;
+    background: #87CEEB;
+}
+
+.overflow{
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 30px 20px;
+    
+}
+
+
+
+
+
+.floatleft{
+    float: left;
+    width: 33.33%;
+    text-align: center;
+    box-sizing: border-box;
+}
+.floatleftinput{
+
+    float: left;
+    width: 33.33%;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.floatleftinput1{
+    float: left;
+    width: 66.66%;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.width100{
+    float: left;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.buttonwidth{
+    float: left;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+
+.buttonwidth a {
+    text-decoration: none;
+    padding-right: 60px;
+   
+}
+
+
+.input1{
+    border: none;
+    border-radius: 5px ;
+    background-color: white;
+    padding: 15px;
+    width: 90%;
+    box-sizing: border-box;
+    display: display inline-block;
+   
+   
+    
+}
+
+.input2{
+    border: none;
+    border-radius: 5px ;
+    background-color: white;
+    padding: 15px;
+    width: 90%;
+    box-sizing: border-box;
+    display: display inline-block;
+    
+}
+ .input3{
+    border: none;
+    border-radius: 5px ;
+    background-color: white;
+    padding: 15px;
+    width: 85%;
+    box-sizing: border-box;
+    display: display inline-block;
+ }
+
+.p1{
+    margin-top: 13px;
+    font-size: 20px;
+    opacity: 0.8;
+}
+
+.p2{
+
+    font-weight: bold;
+    font-size: 20px;
+    opacity: 0.8;
+}
+
+
+.mrgtp{
+    margin-top: 9px;
+   
+}
+
+button{
+
+   border: none;
+   padding: 10px;
+   border-radius: 0px 15px 0px 15px;
+   background: #87CEEB;
+  color: white;
+width: 25%;
+font-size: 20px;
+
+
+}
+
+button:hover{
+    opacity: 0.7;
+}
+
+.absloute{
+    position: absolute;
+}
+
+.errors{
+   background-color: rgba(255, 0, 0, 0.473);
+}
+
+.rights{
+    background-color: white;
+}
+
+
+input:hover{
+    
+    -webkit-box-shadow: inset 16px 11px 15px 1px rgba(0,0,0,0.15);
+-moz-box-shadow: inset 16px 11px 15px 1px rgba(0,0,0,0.15);
+box-shadow: inset 16px 11px 15px 1px rgba(0,0,0,0.15);
+}
+
+@media(max-width: 1000px){
+.box{width: 90%;}
+}
+
+@media (max-width: 600px) {
+            .floatleft,
+            .floatleftinput,
+            .floatleftinput1 {
+                width: 100%; /* Make these elements occupy the full width */
+                float: none; /* Clear the float for small screens */
+            }
+
+            .floatleft {
+                text-align: left; /* Align text left for paragraphs */
+            }
+
+            .overflow.box {
+                padding: 10px 0; /* Add some vertical spacing */
+            }
+
+            .input1,
+            .input2,
+            .input3 {
+                width: 100%; /* Make inputs occupy the full width */
+                display: block; /* Display inputs as block elements */
+                margin-bottom: 10px; /* Add some vertical spacing between inputs */
+            }
+
+         
+        }
+
+    </style>
+</head>
+<body>
+    
+<div class="maincountanier box">
+
+<div>
+    <h1>ICT DEPARTMENT JOBLOG FORM</h1>
+</div>
+<form action="" method="POST">
+    <h3 style="text-align: center; color: red;">
+
+   
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+          
+              {{ message }}
+             
+          
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+        </h3>
+
+        <div class="overflow box">
+            <div class="floatleft">
+                <p class="p2">Date:</p>
+            </div>
+            <div class="floatleftinput1 mrgtp">
+                <input class="input2" type="date" name="fault_date" required>
+            </div>
+        </div>
+
+    
+    <div class="overflow box">
+        <div class="floatleft">
+            <p class="p2">Username</p>
+        </div>
+        <div class="floatleftinput1 mrgtp">
+            <input class="input2" type="text" name="username" placeholder="Your Name" required>
+        </div>
+    </div>
+
+    <div class="overflow box">
+        <div class="floatleft">
+            <p class="p2">Phone Number</p>
+        </div>
+        <div class="floatleftinput1 mrgtp">
+            <input class="input2" type="tel" name="number" placeholder="Phone Number" required>
+        </div>
+    </div>
+
+    
+    <div class="overflow box">
+        <div class="floatleft">
+            <p class="p2">Terminal:</p>
+        </div>
+        <div class="floatleftinput1 mrgtp">
+            <select style="font-size: 18px;" class="input2" name="terminal" id="terminal" required>
+                    <option>Select Option</option>
+                {% for t in terminals %}
+                    <option value="{{ t_id }}">{{ t.terminal }}</option>
+                {% endfor%} 
+            </select>
+        </div>
+    </div>
+    
+    <div class="overflow box">
+        <div class="floatleft">
+            <p class="p2">Unit:</p>
+        </div>
+        <div class="floatleftinput1 mrgtp">
+            <select style="font-size: 18px;" class="input2" name="unit" id="unit" required>
+                    <option>Select Option</option>
+                {% for u in units %}
+                    <option value="{{ u.id }}">{{ u.unit }}</option>
+                {% endfor%} 
+            </select>
+        
+        </div>
+    </div>
+
+    <div class="overflow box">
+        <div class="floatleft">
+            <p class="p2">Location:</p>
+        </div>
+        <div class="floatleftinput1 mrgtp">
+            <input class="input1 right1"  name="location" type="text" id="error1" placeholder="Location" required>
+        </div>
+    </div>
+
+    <div class="overflow box">
+        <div class="floatleft">
+            <p class="p2"> Type of Equipment:</p>
+        </div>
+        <div class="floatleftinput1 mrgtp">
+            <input class="input1 right1"  name="equipment_type" type="text" id="error1" placeholder="Equipment Type" required>
+        </div>
+    </div>
+
+    <div class="overflow box">
+        <div class="floatleft">
+            <p class="p2">Problem/Fault:</p>
+        </div>
+        <div class="floatleftinput1 mrgtp">
+            <textarea class="input2" name="fault" rows="4" placeholder="The fault"></textarea>
+        </div>
+    </div>
+
+    <div class="overflow box">
+        <div class="floatleft">
+            <p class="p2">Rectification:</p>
+        </div>
+        <div class="floatleftinput1 mrgtp">
+            <textarea class="input2" name="rectification" rows="4" placeholder="Your rectification"></textarea>
+        </div>
+    </div>
+
+    <div class="overflow box">
+        <div class="floatleft">
+            <p class="p2"> Remarks:</p>
+        </div>
+        <div class="floatleftinput1 mrgtp">
+            <input class="input1 right1"  name="remarks" type="text" id="error1" placeholder="Remarks" required>
+        </div>
+
+    <div class="overflow box">
+        <div class="buttonwidth">
+            <a href="{{ url_for('home_page') }}">Go Back Home</a>
+            <button type="submit" id="click">Log your work</button>
+        </div>
+    </div>
+</form>
+
+
+
+</div>
+
+
+
+</body>
+<script>
+
+$("#click").click(function(){
+
+    if($("#error1").val() ==''){
+        $("#error1").addClass("errors")
+       
+    }
+    else{$(".right1").addClass("rights")}
+
+    
+
+    if($("#error2").val() ==''){
+        $("#error2").addClass("errors")
+       
+    }
+    else{$(".right2").addClass("rights")}
+
+    if($("#error3").val() ==''){
+        $("#error3").addClass("errors")
+       
+    }
+    else{$(".right3").addClass("rights")}
+
+    if($("#error4").val() ==''){
+        $("#error4").addClass("errors")
+    
+
+    }
+    else{$(".right4").addClass("rights")}
+
+    if($("#error5").val() ==''){
+        $("#error5").addClass("errors")
+       
+    }
+  else{$(".right5").addClass("rights")}
+})
+
+</script>
+
+<script src ="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+</html>
+
