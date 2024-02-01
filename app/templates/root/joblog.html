@@ -282,9 +282,9 @@ box-shadow: inset 16px 11px 15px 1px rgba(0,0,0,0.15);
         <div class="floatleftinput1 mrgtp">
             <select style="font-size: 18px;" class="input2" name="terminal" id="terminal" required>
                     <option>Select Option</option>
-                {% for t in terminals %}
-                    <option value="{{ t_id }}">{{ t.terminal }}</option>
-                {% endfor%} 
+                    {% for t in terminals %}
+                        <option value="{{ t.id }}">{{ t.terminal }}</option>
+                    {% endfor%} 
             </select>
         </div>
     </div>
@@ -295,12 +295,11 @@ box-shadow: inset 16px 11px 15px 1px rgba(0,0,0,0.15);
         </div>
         <div class="floatleftinput1 mrgtp">
             <select style="font-size: 18px;" class="input2" name="unit" id="unit" required>
-                    <option>Select Option</option>
+                <option>Select Option</option>
                 {% for u in units %}
                     <option value="{{ u.id }}">{{ u.unit }}</option>
                 {% endfor%} 
             </select>
-        
         </div>
     </div>
 
