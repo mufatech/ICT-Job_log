@@ -5,8 +5,7 @@ from app import app, db
 
 @app.route('/joblog', methods=['GET', 'POST'])
 def job_log():
-    form = JobLogForm()
-
+    #form = JobLogForm()
     if request.method == 'POST':
         fault_date = request.form['fault_date']
         username = request.form['username']

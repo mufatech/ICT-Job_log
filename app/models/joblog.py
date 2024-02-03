@@ -2,7 +2,7 @@
 from app import db
 
 class JobLogForm(db.Model):
-    __tablename__ = 'joblogs' 
+    __tablename__ = 'job_log_form' 
     id = db.Column(db.Integer, primary_key=True)
     fault_date = db.Column(db.Date, nullable=False)
     username = db.Column(db.String(50), nullable=False)

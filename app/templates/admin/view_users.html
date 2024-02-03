@@ -50,35 +50,41 @@
     </style>
 
 
-    <h2 class="m-3">Units</h2>
+    <h2 class="m-3">Users</h2>
     <table class="table table-success table-striped mt-4">
         <thead>
             <tr>
-                <th>Unit ID</th>                
-                <th>Unit Name</th>
+                <th>User ID</th>                
+                <th>User Email</th>
+                <th>User Password</th>
             </tr>
         </thead>
         <tbody>
-            {% for unit in units %}
+            {% for user in users %}
             <tr>
-                <td>{{ unit.id }}</td>
-                <td>{{ unit.unit }}</td>
+                <td>{{ user.id }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.password }}</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
     <div class="pagination justify-content-center">
         <span class="badge badge-light">
-            Page {{ units.page }} of {{ units.pages }}
+            Page {{ users.page }} of {{ users.pages }}
         </span>
-        {% if units.has_prev %}
-            <a href="{{ url_for('view_units', page=units.prev_num) }}" class="btn btn-sm btn-primary">Previous</a>
+        {% if users.has_prev %}
+            <a href="{{ url_for('view_users', page=users.prev_num) }}" class="btn btn-sm btn-primary">Previous</a>
         {% endif %}
-        {% if units.has_next %}
-            <a href="{{ url_for('view_units', page=units.next_num) }}" class="btn btn-sm btn-primary">Next</a>
+        {% if users.has_next %}
+            <a href="{{ url_for('view_users', page=users.next_num) }}" class="btn btn-sm btn-primary">Next</a>
         {% endif %}
     </div>
 
+    
+
+
 {% endblock %}
+
 
 

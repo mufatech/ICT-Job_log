@@ -58,28 +58,28 @@
                             </a>       
                             
                             <div class="sb-sidenav-menu-heading">User</div>                            
-                            <a class="nav-link" href="">
-                             <div class="sb-nav-link-icon"><i class="fas fa-user-plus"></i>
+                            <a class="nav-link" href="{{ url_for('add_user') }}"><div class="sb-nav-link-icon"><i class="fas fa-user-plus"></i>
+                            </div>Add User</a>
+                            <a class="nav-link" href="{{ url_for('edit_users', user=user) }}"> 
+                            <div class="sb-nav-link-icon"><i class="fas fa-user-plus"></i></div>Edit User</a>
 
-                             </div>Add User</a>
-
-                            <a class="nav-link" href=""> <div class="sb-nav-link-icon"><i class="fas fa-user-plus"></i></div>Edit User</a>
+                            <a class="nav-link" href="{{ url_for('view_users') }}"> 
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-plus"></i></div>View User</a>
                             
-                     
                             <div class="sb-sidenav-menu-heading">Terminal</div>                            
                             <a class="nav-link" href="{{ url_for('add_terminal') }}"><div class="sb-nav-link-icon"><i class="fas fa-plus"></i>
                             </div> Add Terminal</a>
-                            <a class="nav-link" href="{{ url_for('view_terminals')}}"><div class="sb-nav-link-icon"><svg class="octicon octicon-pencil" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4.71 11.29L10.41 5.59 11.85 7.02 6.15 12.71H4v-1.41l5.71-5.7-1.44-1.43-5.7 5.7zM1 12.5a1.5 1.5 0 003 0 1.5 1.5 0 00-3 0zM2.44 14H11.5a.5.5 0 000-1H2.44a2.492 2.492 0 01-.98-.24c-.02-.01-.03-.02-.04-.03l-1-1a.5.5 0 010-.7l4-4a.5.5 0 01.7 0l8.96 8.96a.5.5 0 01-.35.85H13.5a.5.5 0 000 1h3.85a.5.5 0 01.35.85l-1 1a.5.5 0 01-.35.15.5.5 0 01-.35-.15l-1.45-1.45-8.96-8.96a.5.5 0 010-.7l4-4a.5.5 0 01.7 0l1 1c.01.01.02.02.03.04a2.492 2.492 0 01.24.98v.01a.5.5 0 001 0v-.01c0-.16-.04-.32-.1-.47L2.44 14z"></path></svg>
+                            <a class="nav-link" href="{{ url_for('view_terminals') }}"><div class="sb-nav-link-icon"><svg class="octicon octicon-pencil" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4.71 11.29L10.41 5.59 11.85 7.02 6.15 12.71H4v-1.41l5.71-5.7-1.44-1.43-5.7 5.7zM1 12.5a1.5 1.5 0 003 0 1.5 1.5 0 00-3 0zM2.44 14H11.5a.5.5 0 000-1H2.44a2.492 2.492 0 01-.98-.24c-.02-.01-.03-.02-.04-.03l-1-1a.5.5 0 010-.7l4-4a.5.5 0 01.7 0l8.96 8.96a.5.5 0 01-.35.85H13.5a.5.5 0 000 1h3.85a.5.5 0 01.35.85l-1 1a.5.5 0 01-.35.15.5.5 0 01-.35-.15l-1.45-1.45-8.96-8.96a.5.5 0 010-.7l4-4a.5.5 0 01.7 0l1 1c.01.01.02.02.03.04a2.492 2.492 0 01.24.98v.01a.5.5 0 001 0v-.01c0-.16-.04-.32-.1-.47L2.44 14z"></path></svg>
                             </div>View Terminals</a>
-                            <a class="nav-link" href=""><div class="sb-nav-link-icon"><svg class="octicon octicon-pencil" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4.71 11.29L10.41 5.59 11.85 7.02 6.15 12.71H4v-1.41l5.71-5.7-1.44-1.43-5.7 5.7zM1 12.5a1.5 1.5 0 003 0 1.5 1.5 0 00-3 0zM2.44 14H11.5a.5.5 0 000-1H2.44a2.492 2.492 0 01-.98-.24c-.02-.01-.03-.02-.04-.03l-1-1a.5.5 0 010-.7l4-4a.5.5 0 01.7 0l8.96 8.96a.5.5 0 01-.35.85H13.5a.5.5 0 000 1h3.85a.5.5 0 01.35.85l-1 1a.5.5 0 01-.35.15.5.5 0 01-.35-.15l-1.45-1.45-8.96-8.96a.5.5 0 010-.7l4-4a.5.5 0 01.7 0l1 1c.01.01.02.02.03.04a2.492 2.492 0 01.24.98v.01a.5.5 0 001 0v-.01c0-.16-.04-.32-.1-.47L2.44 14z"></path></svg>
+                            <a class="nav-link" href="{{ url_for('edit_terminals', terminal_id=terminal_id) }}"><div class="sb-nav-link-icon"><svg class="octicon octicon-pencil" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4.71 11.29L10.41 5.59 11.85 7.02 6.15 12.71H4v-1.41l5.71-5.7-1.44-1.43-5.7 5.7zM1 12.5a1.5 1.5 0 003 0 1.5 1.5 0 00-3 0zM2.44 14H11.5a.5.5 0 000-1H2.44a2.492 2.492 0 01-.98-.24c-.02-.01-.03-.02-.04-.03l-1-1a.5.5 0 010-.7l4-4a.5.5 0 01.7 0l8.96 8.96a.5.5 0 01-.35.85H13.5a.5.5 0 000 1h3.85a.5.5 0 01.35.85l-1 1a.5.5 0 01-.35.15.5.5 0 01-.35-.15l-1.45-1.45-8.96-8.96a.5.5 0 010-.7l4-4a.5.5 0 01.7 0l1 1c.01.01.02.02.03.04a2.492 2.492 0 01.24.98v.01a.5.5 0 001 0v-.01c0-.16-.04-.32-.1-.47L2.44 14z"></path></svg>
                             </div>Edit Terminal</a>
                             
 
                             <div class="sb-sidenav-menu-heading">Unit</div>                            
                             <a class="nav-link" href="{{ url_for('add_unit') }}"><div class="sb-nav-link-icon"><i class="fas fa-plus"></i></div>Add Unit</a>
-                            <a class="nav-link" href="{{ url_for('view_units')}}"><div class="sb-nav-link-icon"><i class="material-icons"></i></div>
+                            <a class="nav-link" href="{{ url_for('view_units') }}"><div class="sb-nav-link-icon"><i class="material-icons"></i></div>
                                View Units</a>
-                            <a class="nav-link" href="{{ url_for('edit_unit', unit_id=1) }}"><div class="sb-nav-link-icon"><i class="material-icons"></i></div>
+                            <a class="nav-link" href="{{ url_for('edit_units', unit_id=unit_id) }}"><div class="sb-nav-link-icon"><i class="material-icons"></i></div>
                                 Edit Unit</a>
                         </div>
 

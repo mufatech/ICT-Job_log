@@ -63,7 +63,7 @@
             {% for terminal in terminals %}
             <tr>
                 <td>{{ terminal.id }}</td>
-                <td>{{ terminal.name }}</td>
+                <td>{{ terminal.terminal }}</td>
                 <td>
                     <a href="{{ url_for('edit_terminal', terminal_id=terminal.id) }}" class="btn btn-primary">Edit</a>
                     <a href="{{ url_for('delete_terminal', terminal_id=terminal.id) }}" class="btn btn-danger">Delete</a>
@@ -72,3 +72,5 @@
             {% endfor %}
         </tbody>
     </table>
+    
+    {% endblock %}

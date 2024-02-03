@@ -1,7 +1,8 @@
 from app import app, db
 from flask import render_template, request, redirect, url_for, flash
-from flask_login import login_required
+from flask_login import login_required, current_user
 from app.models.joblog import Terminal, Unit
+from app.models.user import User
 
 
 # Add New terminal Route
@@ -53,4 +54,27 @@ def add_unit():
     
     return render_template('admin/add_unit.html')
 
+
+
+# User loader function 
+    def load_user(user_id):
+        return User.query.get(int(user_id))
+    
+# Route to add a new user
+@app.route('/admin/add_user', methods=['GET', 'POST'])
+@login_required
+def add_user():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        password = request.form.get('password')
+        is_admin = 'is_admin' in request.form
+        
+        new_user = User(email=email, password=password, is_admin=is_admin)
+        db.session.add(new_user)
+        db.session.commit() 
+        flash('User added successfully', 'success')
+        return redirect(url_for('admin_dashboard'))
+   
+    return render_template('admin/add_user.html')
+        
 

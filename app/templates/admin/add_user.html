@@ -1,0 +1,32 @@
+{% extends 'admin/base.html' %}
+
+{% block title %}Add New User{% endblock %}
+
+{% block content %}
+
+<div class="app-wrapper">
+	    
+    <div class="app-content pt-3 p-md-3 p-lg-4">
+        <div class="container-xl">
+
+    <div class="app-card app-card-settings shadow-sm p-4">
+        <h2 class="page-title">Add New User</h2>
+        <form method="POST" action="" enctype="multipart/form-data">
+            
+            <div class="form-group">
+                <label for="unit">Email:</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="short_description">Password:</label>
+                <input type="password" id="password" name="password" class="form-control" required></input>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Add User</button>
+        </form>
+    </div>
+</div>
+</div>
+
+{% endblock %}

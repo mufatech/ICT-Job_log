@@ -56,6 +56,7 @@
             <tr>
                 <th>Unit ID</th>                
                 <th>Unit Name</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -63,22 +64,13 @@
             <tr>
                 <td>{{ unit.id }}</td>
                 <td>{{ unit.unit }}</td>
+                <td>
+                    <a href="{{ url_for('edit_unit', unit_id=unit.id) }}" class="btn btn-primary">Edit</a>
+                    <a href="{{ url_for('delete_unit', unit_id=unit.id) }}" class="btn btn-danger">Delete</a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
-    <div class="pagination justify-content-center">
-        <span class="badge badge-light">
-            Page {{ units.page }} of {{ units.pages }}
-        </span>
-        {% if units.has_prev %}
-            <a href="{{ url_for('view_units', page=units.prev_num) }}" class="btn btn-sm btn-primary">Previous</a>
-        {% endif %}
-        {% if units.has_next %}
-            <a href="{{ url_for('view_units', page=units.next_num) }}" class="btn btn-sm btn-primary">Next</a>
-        {% endif %}
-    </div>
-
-{% endblock %}
-
-
+    
+    {% endblock %}
