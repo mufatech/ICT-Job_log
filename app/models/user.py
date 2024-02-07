@@ -10,3 +10,5 @@ class User(UserMixin, db.Model):
     is_admin = db.Column(db.Boolean, default=False)
     
     
+    
+    
