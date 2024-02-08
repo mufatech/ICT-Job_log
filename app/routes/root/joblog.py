@@ -41,8 +41,8 @@ def job_log():
         return redirect(url_for('success_page'))
     
     # Fetching terminals and units for rendering the form
-    terminals = Terminal.query.all()
-    units = Unit.query.all()
+        terminals = Terminal.query.all()
+        units = Unit.query.all()
 
     return render_template('root/joblog.html', terminals=terminals, units=units)
 
