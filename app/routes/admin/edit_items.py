@@ -2,7 +2,7 @@ from flask import render_template, request, redirect, url_for, flash
 from app import app, db
 from flask_login import login_required
 from app.models.joblog import Terminal, Unit
-from app.models.user import User
+from app.models.staff_login import User
 
 
 # Route to edit terminal

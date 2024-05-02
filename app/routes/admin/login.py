@@ -1,7 +1,9 @@
 from flask import render_template, request, redirect, url_for, flash
 from app import app, db
 from app.models.login import Admin
+from app.models.user import User
 from flask_login import login_user, logout_user, login_required
+from werkzeug.security import check_password_hash
 
 
 @app.route('/admin/login', methods=['GET', 'POST'])
@@ -48,3 +50,5 @@ def logout():
     flash('You have been logged out.', 'success')
     return redirect(url_for('admin_login'))
     
+    
+

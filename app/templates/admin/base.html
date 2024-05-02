@@ -15,7 +15,7 @@
 
 
     <body class="sb-nav-fixed">
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-success">
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="{{ url_for('admin_dashboard') }}">ICT JOBLOG</a>
             <!-- Sidebar Toggle-->
@@ -48,7 +48,7 @@
         </nav>
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
-                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <nav class="sb-sidenav accordion sb-sidenav-success" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
@@ -58,12 +58,12 @@
                             </a>       
                             
                             <div class="sb-sidenav-menu-heading">User</div>                            
-                            <a class="nav-link" href="{{ url_for('add_user') }}"><div class="sb-nav-link-icon"><i class="fas fa-user-plus"></i>
-                            </div>Add User</a>
+                            <a class="nav-link" href="{{ url_for('create_user') }}"><div class="sb-nav-link-icon"><i class="fas fa-user-plus"></i>
+                            </div>Create User</a>
                             <a class="nav-link" href="{{ url_for('edit_users', user=user) }}"> 
                             <div class="sb-nav-link-icon"><i class="fas fa-user-plus"></i></div>Edit User</a>
 
-                            <a class="nav-link" href="{{ url_for('view_users') }}"> 
+                            <a class="nav-link" href="{{ url_for('view_created_users') }}"> 
                                 <div class="sb-nav-link-icon"><i class="fas fa-user-plus"></i></div>View User</a>
                             
                             <div class="sb-sidenav-menu-heading">Terminal</div>                            

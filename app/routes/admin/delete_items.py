@@ -2,7 +2,7 @@ from flask import redirect, url_for, flash
 from app import app, db
 from flask_login import login_required
 from app.models.joblog import Terminal, Unit
-from app.models.user import User
+from app.models.staff_login import User
 
 
 # Route to delete terminal
@@ -36,4 +36,4 @@ def delete_user(user_id):
     db.session.delete(user)
     db.session.commit()
     flash('User deleted successfully!', 'success')
-    return redirect(url_for('view_users'))
+    return redirect(url_for('view_created_users'))

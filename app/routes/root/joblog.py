@@ -1,6 +1,7 @@
-from flask import Flask, render_template,  request, url_for, flash, redirect
+from flask import Flask, render_template,  request, url_for, flash, redirect, session
 from app.models.joblog import JobLogForm, Terminal, Unit
 from app import app, db
+from app.models.staff_login import User
 
 
 @app.route('/joblog', methods=['GET', 'POST'])
@@ -43,8 +44,15 @@ def job_log():
     # Fetching terminals and units for rendering the form
     terminals = Terminal.query.all()
     units = Unit.query.all()
+    
+    # Retrieve user information from session
+    user_id =  session.get('user_id')
+    email = session.get('email')
+    
+    # Fetch additional user details from the database if needed
+    user = User.query.get(user_id)
 
-    return render_template('root/joblog.html', terminals=terminals, units=units)
+    return render_template('root/joblog.html', terminals=terminals, units=units, user=email)
 
 
 @app.route('/success')
